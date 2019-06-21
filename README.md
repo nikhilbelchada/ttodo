@@ -11,6 +11,13 @@ def deps do
 end
 ```
 
+## Build
+`sh build.sh`
+
+or
+
+`mix escript.build`
+
 ## Usage
 Adding a task
 
