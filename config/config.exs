@@ -22,6 +22,7 @@ use Mix.Config
 #
 
 config :ttodo, :file_handler, Ttodo.Util.FileHandler.File
+config :ttodo, :file_parser, Ttodo.Util.FileParser.Json
 
 # It is also possible to import configuration files, relative to this
 # directory. For example, you can emulate configuration per environment

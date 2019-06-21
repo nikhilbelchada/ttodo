@@ -1,9 +1,11 @@
 defmodule Ttodo.Util.FileHandler.File do
   @behaviour Ttodo.Util.FileHandler
 
+  @file_parser Application.get_env(:ttodo, :file_parser)
+
   def initialize(filename) do
     unless File.exists?(filename) do
-      write(filename, "{}")
+      write(filename, @file_parser.default())
     end
 
     read(filename, [:read, :write])
@@ -12,7 +14,7 @@ defmodule Ttodo.Util.FileHandler.File do
   def read(filename, mode \\ [:read]) do
     File.open!(filename, mode)
     |> IO.read(:all)
-    |> Poison.decode!()
+    |> @file_parser.decode!
   end
 
   def write(filename, content) when is_binary(content) do
@@ -21,13 +23,9 @@ defmodule Ttodo.Util.FileHandler.File do
     {:ok, content}
   end
 
-  def write(filename, content) when is_map(content) do
-    File.write!(filename, Poison.encode!(content))
+  def write(filename, content) do
+    File.write!(filename, @file_parser.encode!(content))
 
     {:ok, content}
-  end
-
-  def write(_filename, content) do
-    throw("Invalid file content")
   end
 end
