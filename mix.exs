@@ -10,6 +10,8 @@ defmodule Ttodo.MixProject do
       deps: deps(),
       escript: escript(),
       language: :elixir,
+      test_coverage: [tool: ExCoveralls],
+      preferred_cli_env: ["coveralls": :test]
     ]
   end
 
@@ -31,7 +33,8 @@ defmodule Ttodo.MixProject do
       {:tzdata, "== 0.1.8", override: true},  # temp hack as tzdata issue with escript. https://github.com/bitwalker/timex/issues/86
       {:mox, "~> 0.5", only: :test},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
-      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false},
+      {:excoveralls, "~> 0.10", only: :test},
     ]
   end
 end
