@@ -4,10 +4,10 @@ defmodule Ttodo.Command.CommandTest do
   alias Ttodo.Command
   alias Ttodo.Command.{
     Add,
-    List,
     Interactive,
-    Quit,
+    List,
     NoCommand,
+    Quit,
   }
 
   test "get_command_by/1 'add' should return Add module" do

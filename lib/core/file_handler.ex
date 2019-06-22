@@ -1,4 +1,8 @@
 defmodule Ttodo.Core.FileHandler do
+  @moduledoc"""
+  Wrapper to Util.FileHandler for simplification
+  """
+
   @filename "todo.json"
   @file_handler Application.get_env(:ttodo, :file_handler)
 

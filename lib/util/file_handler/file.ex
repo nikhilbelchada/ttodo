@@ -1,4 +1,8 @@
 defmodule Ttodo.Util.FileHandler.File do
+  @moduledoc"""
+  Module includes logic to handle File Operations
+  """
+
   @behaviour Ttodo.Util.FileHandler
 
   @file_parser Application.get_env(:ttodo, :file_parser)

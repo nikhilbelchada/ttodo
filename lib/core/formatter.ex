@@ -1,4 +1,8 @@
 defmodule Ttodo.Core.Formatter do
+  @moduledoc"""
+  Used by Commands to format their output
+  """
+
   def format({:error, %{"msg" => msg}}) do
     IO.puts msg
   end

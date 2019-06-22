@@ -1,4 +1,8 @@
 defmodule Ttodo.Core.ArgsParser do
+  @moduledoc"""
+  Module includes logic to parse CLI args
+  """
+
   @spec parse(args :: String) :: String
   def parse(args) do
     {params, _, _} =

@@ -1,9 +1,15 @@
 defmodule Ttodo.Command do
+  @moduledoc"""
+  Behaviour Module for All Commands
+  """
+
   @callback perform(arg :: String.t(), args :: List.t()) :: {:ok, map()}
   @callback names() :: List.t()
 
+  alias Ttodo.Command.NoCommand
+
   @spec sub_modules() :: List.t()
-  def sub_modules() do
+  def sub_modules do
     {:ok, modules} = :application.get_key(:ttodo, :modules)
 
     modules
@@ -22,11 +28,11 @@ defmodule Ttodo.Command do
       sub_modules()
       |> Enum.find(fn(module) -> command_name in module.names end)
 
-    command || Ttodo.Command.NoCommand
+    command || NoCommand
   end
 
   @spec execute(commands :: List.t()) :: String.t()
-  def execute([]), do: Ttodo.Command.NoCommand.perform(nil, [])
+  def execute([]), do: NoCommand.perform(nil, [])
   def execute([command_name, arg | args]) do
     execute([{command_name, arg} | args])
   end

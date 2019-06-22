@@ -1,4 +1,8 @@
 defmodule Ttodo.Command.List do
+  @moduledoc"""
+  Module includes logic to list all todos
+  """
+
   @behaviour Ttodo.Command
 
   alias Ttodo.Core.{
@@ -7,7 +11,7 @@ defmodule Ttodo.Command.List do
   }
 
   @spec names() :: List.t()
-  def names(), do: ["list", :list]
+  def names, do: ["list", :list]
 
   @spec perform(name :: String.t(), args :: List.t()) :: String.t()
   def perform(true, []) do

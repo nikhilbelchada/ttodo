@@ -1,4 +1,8 @@
 defmodule Ttodo.Command.NoCommand do
+  @moduledoc"""
+  Module includes logic for handling any unknown commands
+  """
+
   @behaviour Ttodo.Command
 
   alias Ttodo.Core.Formatter
@@ -10,5 +14,5 @@ defmodule Ttodo.Command.NoCommand do
   def perform(_, _), do: perform()
 
   @spec perform() :: String.t()
-  def perform(), do: Formatter.format {:error, %{"msg" => "Invalid Command. \nTry using 'help'"}}
+  def perform, do: Formatter.format {:error, %{"msg" => "Invalid Command. \nTry using 'help'"}}
 end

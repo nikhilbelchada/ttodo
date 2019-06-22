@@ -1,4 +1,8 @@
 defmodule Ttodo.Command.Quit do
+  @moduledoc"""
+  Module includes logic for quiting from interactive mode
+  """
+
   @behaviour Ttodo.Command
 
   @spec names() :: List.t()
@@ -8,7 +12,7 @@ defmodule Ttodo.Command.Quit do
   def perform(_, _), do: perform()
 
   @spec perform() :: nil
-  def perform() do
+  def perform do
     IO.puts("Stay Hungry.. Stay Taskish..")
     IO.puts("Bye Bye!!")
     exit(:shutdown)

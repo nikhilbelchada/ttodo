@@ -1,4 +1,8 @@
 defmodule Ttodo.Command.Add do
+  @moduledoc"""
+  Module include logic for adding todo
+  """
+
   @behaviour Ttodo.Command
 
   alias Ttodo.Core.{

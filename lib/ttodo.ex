@@ -1,6 +1,10 @@
 defmodule Ttodo do
-  alias Ttodo.Core.ArgsParser
+  @moduledoc """
+  Entry Point for escript to perform CLI operation
+  """
+
   alias Ttodo.Command
+  alias Ttodo.Core.ArgsParser
 
   @doc """
   Entry point for app via escript

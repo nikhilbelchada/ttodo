@@ -1,4 +1,8 @@
 defmodule Ttodo.Command.Interactive do
+  @moduledoc"""
+  Module includes logic to handle interactive mode
+  """
+
   @behaviour Ttodo.Command
 
   @spec names() :: List.t()
