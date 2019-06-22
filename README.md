@@ -1,6 +1,7 @@
-# TTodo - Simple ToDo App
+# TTodo - Simple ToDo App [![Build Status](https://travis-ci.org/nikhilbelchada/ttodo.svg?branch=master)](https://travis-ci.org/nikhilbelchada/ttodo) [![Coverage Status](https://coveralls.io/repos/github/nikhilbelchada/ttodo/badge.svg?branch=master)](https://coveralls.io/github/nikhilbelchada/ttodo?branch=master)
 
 Simple ToDo Cli built as part of learning elixir
+
 
 ## Installation
 ```elixir
