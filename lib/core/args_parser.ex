@@ -3,7 +3,7 @@ defmodule Ttodo.Core.ArgsParser do
   Module includes logic to parse CLI args
   """
 
-  @spec parse(args :: String) :: String
+  @spec parse(list()) :: list()
   def parse(args) do
     {params, _, _} =
       args

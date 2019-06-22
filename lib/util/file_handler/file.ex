@@ -3,6 +3,8 @@ defmodule Ttodo.Util.FileHandler.File do
   Module includes logic to handle File Operations
   """
 
+  alias  Ttodo.Util.FileParser
+
   @behaviour Ttodo.Util.FileHandler
 
   @file_parser Application.get_env(:ttodo, :file_parser)
@@ -16,9 +18,11 @@ defmodule Ttodo.Util.FileHandler.File do
   end
 
   def read(filename, mode \\ [:read]) do
-    File.open!(filename, mode)
-    |> IO.read(:all)
-    |> @file_parser.decode!
+    file =
+      File.open!(filename, mode)
+      |> IO.read(:all)
+
+    FileParser.decode!(@file_parser, file)
   end
 
   def write(filename, content) when is_binary(content) do
@@ -28,7 +32,7 @@ defmodule Ttodo.Util.FileHandler.File do
   end
 
   def write(filename, content) do
-    File.write!(filename, @file_parser.encode!(content))
+    File.write!(filename, FileParser.encode!(@file_parser, content))
 
     {:ok, content}
   end

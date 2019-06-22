@@ -31,6 +31,7 @@ defmodule Ttodo.MixProject do
       {:tzdata, "== 0.1.8", override: true},  # temp hack as tzdata issue with escript. https://github.com/bitwalker/timex/issues/86
       {:mox, "~> 0.5", only: :test},
       {:credo, "~> 1.0.0", only: [:dev, :test], runtime: false},
+      {:dialyxir, "~> 0.5", only: [:dev], runtime: false}
     ]
   end
 end

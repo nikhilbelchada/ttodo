@@ -3,7 +3,7 @@ defmodule Ttodo.Command do
   Behaviour Module for All Commands
   """
 
-  @callback perform(arg :: String.t(), args :: List.t()) :: {:ok, map()}
+  @callback perform(arg :: String.t(), args :: List.t()) :: String.t()
   @callback names() :: List.t()
 
   alias Ttodo.Command.NoCommand

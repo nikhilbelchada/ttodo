@@ -10,10 +10,8 @@ defmodule Ttodo.Command.Add do
     Formatter,
   }
 
-  @spec names() :: List.t()
   def names, do: ["add", :add]
 
-  @spec perform(name :: String.t(), args :: List.t()) :: String.t()
   def perform(name, []) do
     FileHandler.initialize
     |> add_todo(name)

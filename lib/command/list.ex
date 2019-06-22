@@ -10,16 +10,15 @@ defmodule Ttodo.Command.List do
     Formatter,
   }
 
-  @spec names() :: List.t()
   def names, do: ["list", :list]
 
-  @spec perform(name :: String.t(), args :: List.t()) :: String.t()
-  def perform(true, []) do
+  def perform(_, []) do
     result =
       FileHandler.initialize
       |> Enum.map(fn {_id, todo} -> format(todo) end)
 
-    {:ok, result} |> Formatter.format
+    {:ok, result}
+    |> Formatter.format
   end
 
   @spec format(data :: map()) :: String.t()
